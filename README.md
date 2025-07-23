@@ -14,7 +14,7 @@ This repository contains the MATLAB implementation of a Nonlinear Model Predicti
 
 ## Files
 
-- `main:tilting.m`: Initializes simulation parameters, defines the NMPC controller and system dynamics.
+- `main_tilting.m`: Initializes simulation parameters, defines the NMPC controller and system dynamics.
 - `plot_all.m`: Script that allows to plot all the interested variables.
 - `NMPC.slx`: Simulink model implementing the NMPC-based control of the tilt-rotor UAV.
 - `animation.m`: Creates a 3D animation of the UAV trajectory and motion.
