@@ -19,6 +19,7 @@ This repository contains the MATLAB implementation of a Nonlinear Model Predicti
 - `NMPC.slx`: Simulink model implementing the NMPC-based control of the tilt-rotor UAV.
 - `animation.m`: Creates a 3D animation of the UAV trajectory and motion.
 - `ref_trajectory.m`: Defines waypoints and interpolates the reference trajectory.
+- `quadrotor_3.stl`: Stl model of the drone
 
 ## Simulation Scenario
 
