@@ -109,7 +109,24 @@ for i = 1:N
     safe_dist_z = 0.25;
 
     too_close = false;
+    collision = false;
     
+    % Safety check in case of collision
+    if x <= 0 || x >= 10 || y <= 0 || y >= 10 || z <= 0 || z >= 4
+        collision = true;
+    end
+
+     if (x >= 0 && x <= 3 && y >= 2.72 && y <= 3.28 && z >= 0 && z <= 4) || ...       % Wall 1
+        (x >= 2.72 && x <= 3.28 && y >= 2 && y <= 3 && z >= 0 && z <= 4) || ...       % Wall 2
+        (x >= 7 && x <= 10 && y >= 6.72 && y <= 7.28 && z >= 0 && z <= 4) || ...      % Wall 3
+        (x >= 6.72 && x <= 7.28 && y >= 7 && y <= 8 && z >= 0 && z <= 4) || ...       % Wall 4
+        (x >= 0 && x <= 4 && y >= 4.72 && y <= 5.28 && z >= 0 && z <= 4) || ...       % Wall 5_left
+        (x >= 6 && x <= 10 && y >= 4.72 && y <= 5.28 && z >= 0 && z <= 4) || ...      % Wall 5_right
+        (x >= 4 && x <= 6 && y >= 4.72 && y <= 5.28 && z >= 0 && z <= 2) || ...       % Wall 5_bot
+        (x >= 4 && x <= 6 && y >= 4.72 && y <= 5.28 && z >= 3 && z <= 4)              % Wall 5_top
+        collision = true;
+    end
+
     % Safety checks
     if x < safe_dist || x > 10 - safe_dist || ...
        y < safe_dist || y > 10 - safe_dist || ...
@@ -173,12 +190,18 @@ for i = 1:N
         too_close = true;
     end
     
-        % Mesh color
-        if too_close
-            set(dronePatch, 'FaceColor', 'r', 'EdgeColor', 'none');
-        else
-            set(dronePatch, 'FaceColor', [0.3 0.5 1], 'EdgeColor', 'k'); % colore normale del drone
+     if collision
+        set(dronePatch, 'FaceColor', 'r', 'EdgeColor', 'none');
+        title(' COLLISION DETECTED — Simulation interrupted!', 'Color', 'r', 'FontSize', 14);
+        disp([' Collision at timestep ', num2str(i), ' | Position: [', num2str(pos), ']']);
+        break;
+        
+     elseif too_close
+        set(dronePatch, 'FaceColor', 'r', 'EdgeColor', 'none');
+        
+     else
+        set(dronePatch, 'FaceColor', [0.3 0.5 1], 'EdgeColor', 'k');
+     end
+
+    pause(Ts);
         end
-    
-        pause(Ts);
-end
