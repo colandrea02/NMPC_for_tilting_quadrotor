@@ -22,12 +22,10 @@ This repository contains the MATLAB implementation of a Nonlinear Model Predicti
 - `quadrotor_3.stl`: STL model of the drone
 
 ## Simulation Scenario
-
 - A 3D scene with two rooms and a target point at `[9.0, 9.0, 1.0]`.
 - South and east walls and the ceiling are transparent to facilitate animation viewing.
 
 ## Requirements
-
 - MATLAB R2024b or newer
 - Model Predictive Control Toolbox
 - Simulink
@@ -39,6 +37,10 @@ This repository contains the MATLAB implementation of a Nonlinear Model Predicti
     - 2 → Stochastic noise on all axes
 - Run the script to start the simulation.
 - After the simulation completes, execute plot_all.m to generate and display the plots of relevant variables.
+
+## Aniamtions
+- The videos containing the simulation overview are available [here](https://drive.google.com/drive/folders/10mSwosZwep5IEXsxrUMmfDJuO7S_CbFh?hl=it).
+
 
 
 
